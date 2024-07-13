@@ -2,6 +2,7 @@ import React from 'react';
 import { HiOutlineDownload } from "react-icons/hi";
 import { DiGithubBadge } from "react-icons/di";
 import { FaLinkedinIn } from "react-icons/fa";
+import resume from "../assets/my_resume.pdf";
 
 const Hero = () => {
   return (
@@ -19,7 +20,7 @@ const Hero = () => {
             <p className='text-xs md:text-base max-w-[500px] mx-auto w-full mt-2 md:mt-10'>A passionate and innovative web developer with a knack for creating dynamic and user-friendly web applications</p>
 
             <div className='flex sm:scale-100 scale-75 gap-x-5 justify-center mt-16 items-center'>
-              <a download={"/public/my_resume.pdf"} target='__blank' href="./public/my_resume.pdf" className='hover:bg-purple-700 min-w-fit border border-purple-700 transition-all text-white px-12 bg-transparent py-4 rounded-full flex items-center gap-x-1'>Download CV <HiOutlineDownload className='w-5 h-5' /></a>
+              <a download={"resume.pdf"} target='__blank' href={resume} className='hover:bg-purple-700 min-w-fit border border-purple-700 transition-all text-white px-12 bg-transparent py-4 rounded-full flex items-center gap-x-1'>Download CV <HiOutlineDownload className='w-5 h-5' /></a>
               <a
                 href='https://github.com/lavleshdubey90' target="__blank"
                 className="rounded-full transition-all cursor-pointer hover:bg-purple-700 grid place-content-center border hover:text-white text-purple-700 border-purple-700">
