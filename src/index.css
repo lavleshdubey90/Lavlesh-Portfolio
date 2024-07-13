@@ -77,61 +77,7 @@ html {
   width: 100%;
 }
 
-.animateText {
-  position: relative;
-  color: var(#fff);
-  text-transform: uppercase;
-  width: 100%;
-  text-align: center;
-  -webkit-box-reflect: below 3px linear-gradient(transparent, rgba(0, 0, 0, 0.1));
-  line-height: 0.70em;
-  outline: none;
-  animation: textAnimation 5s linear infinite;
-}
 
-@keyframes textAnimation {
-
-  0%,
-  18%,
-  20%,
-  50.1%,
-  60%,
-  65.1%,
-  80%,
-  90.1%,
-  92% {
-    color: var(#FFF);
-    text-shadow: none;
-  }
-
-  18.1%,
-  20.1%,
-  30%,
-  50%,
-  60.1%,
-  65%,
-  80.1%,
-  90%,
-  92.1%,
-  100% {
-    color: var(#FFF);
-    text-shadow: 0 0 10px var(--primaryLight),
-      0 0 20px var(--primaryLight),
-      0 0 40px var(--primaryLight),
-      0 0 80px var(--primaryLight),
-      0 0 160px var(--primaryLight);
-  }
-}
-
-@keyframes beat {
-  0% {
-    scale: 0.8;
-  }
-
-  100% {
-    scale: 1;
-  }
-}
 
 
 .textStrokePurple {
