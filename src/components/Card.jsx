@@ -1,9 +1,7 @@
 import React from 'react';
 
 const Card = (props) => {
-
-    console.log(props.image);
-
+    
     return props.image ? (
         <div className={`border-2 mx-5 sm:mx-0 relative duration-500 border-purple-700 rounded-md`}>
             <img src={props.image} alt="" className='rounded-md object-center object-cover' />
