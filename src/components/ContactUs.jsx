@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { BiPhoneCall } from "react-icons/bi";
 import { GoMail } from "react-icons/go";
 import { IoLocationOutline } from "react-icons/io5";
+import { FaSpinner } from "react-icons/fa"; // Import the spinner icon
 import Swal from "sweetalert2";
 
 const ContactUs = () => {
@@ -11,6 +12,7 @@ const ContactUs = () => {
         message: ''
     });
     const [errors, setErrors] = useState({});
+    const [loading, setLoading] = useState(false); // Loading state
 
     const validate = () => {
         let errors = {};
@@ -37,6 +39,7 @@ const ContactUs = () => {
         }
 
         setErrors({});
+        setLoading(true); // Start loading
         const data = new FormData(event.target);
 
         data.append("access_key", "a2241be8-d919-4b54-9888-1dec357968c4");
@@ -53,11 +56,25 @@ const ContactUs = () => {
             body: json
         }).then((res) => res.json());
 
+        setLoading(false); // Stop loading
+
         if (res.success) {
             Swal.fire({
                 title: "Success!",
                 text: "Your message has been sent successfully",
                 icon: "success"
+            });
+
+            setFormData({
+                name: "",
+                email: "",
+                message: ""
+            })
+        } else {
+            Swal.fire({
+                title: "Error!",
+                text: "Something went wrong. Please try again later.",
+                icon: "error"
             });
         }
     };
@@ -100,7 +117,10 @@ const ContactUs = () => {
                             onChange={handleChange}
                         />
                         {errors.message && <p className='text-red-500 text-sm'>{errors.message}</p>}
-                        <input type="submit" value="Send Message" className='bg-gradient-to-r from-purple-900 to-purple-500 hover:bg-transparent cursor-pointer min-w-fit transition-all text-white mt-5 px-12 py-4 rounded-full' />
+                        <button type="submit" className='bg-gradient-to-r from-purple-900 to-purple-500 hover:bg-transparent cursor-pointer min-w-fit transition-all text-white mt-5 px-12 py-4 rounded-full flex items-center'>
+                            {loading && <FaSpinner className="animate-spin mr-2" />}
+                            Send Message
+                        </button>
                     </form>
                 </div>
 
